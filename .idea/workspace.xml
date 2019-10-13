@@ -100,7 +100,7 @@
         <entry file="file://$PROJECT_DIR$/Procfile">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="35" selection-start-column="35" selection-end-column="35" />
+              <caret column="47" selection-start-column="47" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -273,7 +273,7 @@
       <window_info anchor="bottom" id="SonarLint" order="0" weight="0.32872504" />
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Python Console" order="2" weight="0.32872504" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="3" sideWeight="0.499002" visible="true" weight="0.49308756" />
+      <window_info anchor="bottom" auto_hide="true" id="Terminal" order="3" sideWeight="0.499002" weight="0.49308756" />
       <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.500998" side_tool="true" weight="0.49308756" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32872504" />
@@ -485,7 +485,7 @@
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="35" selection-start-column="35" selection-end-column="35" />
+          <caret column="47" selection-start-column="47" selection-end-column="47" />
         </state>
       </provider>
     </entry>
