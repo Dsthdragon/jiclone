@@ -1,2 +1,2 @@
-web: flask db upgrade; gunicorn jiclone:app
+web: flask db upgrade; gunicorn jiCgitlone:app
 heroku ps:scale web=1
