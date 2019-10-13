@@ -7,9 +7,11 @@ Click==7.0
 cryptography==2.7
 Flask==1.1.1
 Flask-Cors==3.0.8
+Flask-JWT==0.3.2
 flask-marshmallow==0.10.1
 Flask-Migrate==2.5.2
 Flask-SQLAlchemy==2.4.0
+gunicorn==19.9.0
 idna==2.8
 itsdangerous==1.1.0
 Jinja2==2.10.1
@@ -17,8 +19,10 @@ Mako==1.1.0
 MarkupSafe==1.1.1
 marshmallow==3.0.0
 marshmallow-sqlalchemy==0.17.0
-mysql-client==0.0.1
+mysqlclient==1.4.2.post1
+Pillow==6.1.0
 pycparser==2.19
+PyJWT==1.4.2
 PyMySQL==0.9.3
 python-dateutil==2.8.0
 python-dotenv==0.10.3
