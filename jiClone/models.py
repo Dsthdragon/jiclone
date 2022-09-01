@@ -75,6 +75,10 @@ class Client(db.Model):
         "Review", cascade="all,delete", backref=db.backref("client", lazy=True), lazy=True
     )
 
+    questions = db.relationship(
+        "Question", cascade="all,delete", backref=db.backref("client", lazy=True), lazy=True
+    )
+
     favourites = db.relationship(
         "Favourite", cascade="all,delete", backref=db.backref("client", lazy=True), lazy=True
     )
@@ -263,6 +267,18 @@ class Ad(db.Model):
         "Review", cascade="all,delete", backref=db.backref("ad", lazy=True), lazy=True
     )
 
+    questions = db.relationship(
+        "Question", cascade="all,delete", backref=db.backref("ad", lazy=True), lazy=True
+    )
+
+    favourites_list = db.relationship(
+        "Favourite", cascade="all,delete", backref=db.backref("ad", lazy=True), lazy=True
+    )
+
+    @hybrid_property
+    def favourites(self):
+        return len(self.favourites_list)
+
     @hybrid_property
     def rating(self):
         return (
@@ -293,7 +309,7 @@ class Review(db.Model):
 class ReviewSchema(ma.TableSchema):
     class Meta:
         table = Review.__table__
-    ad = fields.Nested(AdSchema, only=["id", "title"])
+    ad = fields.Nested(AdSchema, only=["id", "title", 'default_image'])
     client = fields.Nested(ClientSchema, only=["id", "first_name", "last_name", "avatar"])
 
 
@@ -307,7 +323,24 @@ class Favourite(db.Model):
 class FavouriteSchema(ma.TableSchema):
     class Meta:
         table = Review.__table__
-    ad = fields.Nested(AdSchema, only=["id", "title"])
+    ad = fields.Nested(AdSchema, only=["id", "title", 'default_image'])
+    client = fields.Nested(ClientSchema, only=["id", "first_name", "last_name", "avatar"])
+
+
+class Question(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    client_id = db.Column(db.Integer,  db.ForeignKey("client.id"), nullable=False)
+    ad_id = db.Column(db.Integer,  db.ForeignKey("ad.id"), nullable=False)
+    question = db.Column(db.Text, nullable=False)
+    answer = db.Column(db.Text, nullable=False)
+    created = db.Column(db.DateTime, default=datetime.utcnow)
+    updated = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+
+class QuestionSchema(ma.TableSchema):
+    class Meta:
+        table = Question.__table__
+    ad = fields.Nested(AdSchema, only=["id", "title", 'default_image'])
     client = fields.Nested(ClientSchema, only=["id", "first_name", "last_name", "avatar"])
 
 

@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61f83f78-bf1f-4f01-9bb0-82bcea8c6996" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiClone/api/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/jiClone/api/routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jiClone/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/jiClone/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +17,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jiClone/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="340">
               <caret line="27" selection-start-line="27" selection-end-line="27" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
@@ -24,30 +26,21 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/jiClone/api/routes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="777" column="26" selection-start-line="777" selection-start-column="12" selection-end-line="777" selection-end-column="26" />
+            <state>
+              <caret lean-forward="true" />
               <folding>
                 <element signature="e#0#71#0" expanded="true" />
-                <element signature="e#4811#6064#0" />
-                <element signature="e#6131#6374#0" />
-                <element signature="e#7149#7706#0" />
-                <element signature="e#8063#8623#0" />
-                <element signature="e#8686#9186#0" />
-                <element signature="e#9253#9496#0" />
-                <element signature="e#9560#9992#0" />
-                <element signature="e#10062#10598#0" />
-                <element signature="e#10673#10938#0" />
-                <element signature="e#11006#11456#0" />
-                <element signature="e#13515#14906#0" />
-                <element signature="e#14987#15703#0" />
-                <element signature="e#16445#17035#0" />
-                <element signature="e#17825#18666#0" />
-                <element signature="e#18754#19680#0" />
-                <element signature="e#19764#20702#0" />
-                <element signature="e#24229#24778#0" />
+                <element signature="e#25678#26353#0" />
+                <element signature="e#25670#26360#0" />
+                <element signature="e#27170#27669#0" />
+                <element signature="e#27215#27898#0" />
+                <element signature="e#28028#28764#0" />
+                <element signature="e#29414#30109#0" />
+                <element signature="e#30343#31153#0" />
+                <element signature="e#31277#32013#0" />
               </folding>
             </state>
           </provider>
@@ -56,23 +49,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jiClone/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="917">
-              <caret line="275" column="27" selection-start-line="275" selection-start-column="27" selection-end-line="275" selection-end-column="27" />
+            <state relative-caret-position="317">
+              <caret line="342" column="52" lean-forward="true" selection-start-line="342" selection-start-column="52" selection-end-line="342" selection-end-column="52" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
-                <element signature="e#447#1287#0" />
-                <element signature="e#1328#1370#0" />
-                <element signature="e#1401#3648#0" />
-                <element signature="e#3792#4692#0" />
-                <element signature="e#4810#5163#0" />
-                <element signature="e#5212#5254#0" />
-                <element signature="e#5287#5507#0" />
-                <element signature="e#5552#5598#0" />
-                <element signature="e#5629#5847#0" />
-                <element signature="e#5890#5934#0" />
-                <element signature="e#5964#6263#0" />
-                <element signature="e#6305#6348#0" />
-                <element signature="e#6380#7176#0" />
               </folding>
             </state>
           </provider>
@@ -90,13 +70,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
+            <state>
               <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Procfile">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -106,10 +86,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/runserver.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.flaskenv">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="10" lean-forward="true" selection-start-column="10" selection-end-column="22" />
+              <caret column="10" selection-start-column="10" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -118,7 +107,7 @@
         <entry file="file://$PROJECT_DIR$/config.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -131,8 +120,8 @@
       <find>resize</find>
       <find>cas</find>
       <find>session.delete(</find>
-      <find>delete</find>
       <find>ad</find>
+      <find>delete</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -145,20 +134,20 @@
         <option value="$PROJECT_DIR$/migrations/versions/49def87e0a5a_added_client_id_column_to_ads.py" />
         <option value="$PROJECT_DIR$/migrations/versions/7ef9c34c1f2d_added_title_and_description_to_ads.py" />
         <option value="$PROJECT_DIR$/jiClone/__init__.py" />
-        <option value="$PROJECT_DIR$/jiClone/api/routes.py" />
-        <option value="$PROJECT_DIR$/jiClone/models.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/requirement.txt" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/Procfile" />
+        <option value="$PROJECT_DIR$/jiClone/models.py" />
+        <option value="$PROJECT_DIR$/jiClone/api/routes.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1358" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1040" />
+    <option name="width" value="1382" />
     <option name="height" value="784" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -167,7 +156,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -194,12 +182,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -264,10 +254,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1358" y="-8" width="1040" height="784" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1736527" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12946428" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="SonarLint" order="0" weight="0.32872504" />
@@ -277,7 +267,7 @@
       <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.500998" side_tool="true" weight="0.49308756" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32872504" />
-      <window_info anchor="bottom" id="Run" order="7" weight="0.2857143" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.2857143" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.39938557" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
@@ -320,13 +310,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rquirement.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="23" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/rquirement.txt" />
     <entry file="file://$PROJECT_DIR$/migrations/versions/48c351a74163_changed_ad_default_image_something.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -353,33 +337,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jiClone/api/routes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="777" column="26" selection-start-line="777" selection-start-column="12" selection-end-line="777" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#71#0" expanded="true" />
-            <element signature="e#4811#6064#0" />
-            <element signature="e#6131#6374#0" />
-            <element signature="e#7149#7706#0" />
-            <element signature="e#8063#8623#0" />
-            <element signature="e#8686#9186#0" />
-            <element signature="e#9253#9496#0" />
-            <element signature="e#9560#9992#0" />
-            <element signature="e#10062#10598#0" />
-            <element signature="e#10673#10938#0" />
-            <element signature="e#11006#11456#0" />
-            <element signature="e#13515#14906#0" />
-            <element signature="e#14987#15703#0" />
-            <element signature="e#16445#17035#0" />
-            <element signature="e#17825#18666#0" />
-            <element signature="e#18754#19680#0" />
-            <element signature="e#19764#20702#0" />
-            <element signature="e#24229#24778#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -414,67 +371,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirement.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jiClone/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="917">
-          <caret line="275" column="27" selection-start-line="275" selection-start-column="27" selection-end-line="275" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-            <element signature="e#447#1287#0" />
-            <element signature="e#1328#1370#0" />
-            <element signature="e#1401#3648#0" />
-            <element signature="e#3792#4692#0" />
-            <element signature="e#4810#5163#0" />
-            <element signature="e#5212#5254#0" />
-            <element signature="e#5287#5507#0" />
-            <element signature="e#5552#5598#0" />
-            <element signature="e#5629#5847#0" />
-            <element signature="e#5890#5934#0" />
-            <element signature="e#5964#6263#0" />
-            <element signature="e#6305#6348#0" />
-            <element signature="e#6380#7176#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.flaskenv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="10" lean-forward="true" selection-start-column="10" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/requirement.txt" />
     <entry file="file://$PROJECT_DIR$/jiClone/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
+        <state relative-caret-position="340">
           <caret line="27" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
@@ -482,10 +382,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="45" selection-start-column="45" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.flaskenv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="10" selection-start-column="10" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/runserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jiClone/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="342" column="52" lean-forward="true" selection-start-line="342" selection-start-column="52" selection-end-line="342" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jiClone/api/routes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+          <folding>
+            <element signature="e#0#71#0" expanded="true" />
+            <element signature="e#25678#26353#0" />
+            <element signature="e#25670#26360#0" />
+            <element signature="e#27170#27669#0" />
+            <element signature="e#27215#27898#0" />
+            <element signature="e#28028#28764#0" />
+            <element signature="e#29414#30109#0" />
+            <element signature="e#30343#31153#0" />
+            <element signature="e#31277#32013#0" />
+          </folding>
         </state>
       </provider>
     </entry>

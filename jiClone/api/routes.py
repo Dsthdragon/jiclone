@@ -24,6 +24,7 @@ def user_auth():
     admin = AdminSchema().dump(user.admin)
     return jsonify(status="success", message="User Logged In", isAuth=True, client=client, admin=admin)
 
+
 # Client Routes
 @bp.route("/client")
 def get_clients():
@@ -34,7 +35,7 @@ def get_clients():
     return jsonify(status="success", message="Clients Found", clients=clients, has_next=has_next)
 
 
-@bp.route("/client",  methods=["POST"])
+@bp.route("/client", methods=["POST"])
 def register_client():
     data = request.get_json()
 
@@ -51,18 +52,18 @@ def register_client():
     client = Client.query.filter_by(email=data["email"]).first()
     if client:
         return jsonify(status="failed", message="Email Address already in system!")
-    
+
     user = User()
     db.session.add(user)
     db.session.commit()
 
     client = Client(
-            email=data.get("email"),
-            phone=data.get("phone"),
-            first_name=data.get("first_name"),
-            last_name=data.get("last_name"),
-            user_id=user.id
-        )
+        email=data.get("email"),
+        phone=data.get("phone"),
+        first_name=data.get("first_name"),
+        last_name=data.get("last_name"),
+        user_id=user.id
+    )
 
     client.set_password(data.get("password"))
 
@@ -97,7 +98,7 @@ def login_client():
     return resp
 
 
-@bp.route("/client",  methods=["PUT"])
+@bp.route("/client", methods=["PUT"])
 def update_client():
     data = request.get_json()
 
@@ -106,7 +107,7 @@ def update_client():
 
     if not data.get("first_name"):
         return jsonify(status="failed", message="First Name required!")
-    
+
     client = Client.query.get(data.get('id'))
 
     if not client:
@@ -202,6 +203,7 @@ def get_client(client_id):
 def client_avatar(filename):
     return url_for('static', filename=f'upload/images/{filename}')
 
+
 # Place Routes
 @bp.route("/place")
 def get_places():
@@ -224,7 +226,7 @@ def get_places_by_region(region):
     limited = request.args.get('limited', 1, type=int)
     if limited:
         page = request.args.get("page", 1, type=int)
-        places = Place.query.filter_by(region_id=region)\
+        places = Place.query.filter_by(region_id=region) \
             .paginate(page, current_app.config['POSTS_PER_PAGE'], False)
         has_next = places.has_next
         places = places.items
@@ -249,7 +251,7 @@ def get_place(place_id):
 @bp.route("/place", methods=["POST"])
 def add_place():
     data = request.get_json()
-    
+
     if data is None:
         return jsonify(status="failed", message="No Data Sent!")
 
@@ -296,7 +298,7 @@ def get_region(region_id):
 @bp.route("/region", methods=["POST"])
 def add_region():
     data = request.get_json()
-    
+
     if data is None:
         return jsonify(status="failed", message="No Data Sent!")
 
@@ -342,7 +344,7 @@ def get_category(category_id):
 @bp.route("/category", methods=["POST"])
 def add_category():
     data = request.get_json()
-    
+
     if data is None:
         return jsonify(status="failed", message="No Data Sent!")
 
@@ -419,7 +421,7 @@ def create_ad():
 
     unique_filename = str(uuid.uuid4()) + '.' + data['type']
     ad_image = AdImage()
-    ad_image .image = unique_filename
+    ad_image.image = unique_filename
     ad_image.ad_id = ad.id
     ad_image.default = True
     ad_image.save_image(unique_filename, data['image'])
@@ -494,8 +496,8 @@ def get_category_ads(category):
         page = request.args.get("page", 1, type=int)
         per_page = request.args.get("per_page", 0, type=int)
         per_page = per_page if per_page != 0 else current_app.config['POSTS_PER_PAGE']
-        ads = Ad.query.filter_by(category_id=category)\
-            .order_by(Ad.created.desc())\
+        ads = Ad.query.filter_by(category_id=category) \
+            .order_by(Ad.created.desc()) \
             .paginate(page, per_page, False)
         has_next = ads.has_next
         ads = ads.items
@@ -572,8 +574,8 @@ def get_client_ads(client):
     if limited:
         page = request.args.get("page", 1, type=int)
         ads = Ad.query.filter_by(client_id=client).order_by(
-                Ad.created.desc()
-            ).paginate(page, current_app.config['POSTS_PER_PAGE'], False)
+            Ad.created.desc()
+        ).paginate(page, current_app.config['POSTS_PER_PAGE'], False)
         has_next = ads.has_next
         ads = ads.items
     else:
@@ -585,7 +587,6 @@ def get_client_ads(client):
 
 @bp.route("/service/<service_id>")
 def get_ad(service_id):
-
     viewed = request.args.get("viewed", 0, type=int)
 
     ad = Ad.query.get(service_id)
@@ -792,3 +793,254 @@ def service_review(ad):
     reviews = ReviewSchema(many=True).dump(reviews)
 
     return jsonify(status="success", message="Reviews Found", reviews=reviews, has_next=has_next, total=total)
+
+
+@bp.route("/client_review/<client>")
+def client_review(client):
+    client = Client.query.get(client)
+    if not client:
+        return jsonify(status="failed", message="Client not found")
+
+    page = request.args.get("page", 1, type=int)
+    per_page = request.args.get("per_page", 0, type=int)
+    per_page = per_page if per_page != 0 else current_app.config['POSTS_PER_PAGE']
+    reviews = Review.query.filter_by(client_id=client.id).order_by(
+        Review.created.desc()
+    ).paginate(page, per_page, False)
+    has_next = reviews.has_next
+    total = reviews.total
+    reviews = reviews.items
+
+    reviews = ReviewSchema(many=True).dump(reviews)
+
+    return jsonify(status="success", message="Reviews Found", reviews=reviews, has_next=has_next, total=total)
+
+
+@bp.route("/favourite", methods=['POST'])
+def toggle_favourite():
+    data = request.get_json()
+
+    if not data:
+        return jsonify(status="failed", message="Data required!")
+
+    if not data.get('client') or not data.get('ad'):
+        return jsonify(status="failed", message="client and ad required!")
+
+    favourite = Favourite.query.filter_by(client_id=data['client'], ad_id=data['ad']).first()
+    if favourite:
+        db.session.delete(favourite)
+        db.session.commit()
+        return jsonify(status='success', message="Removed From Favourite")
+
+    favourite = Favourite()
+    favourite.client_id = data.get('client')
+    favourite.ad_id = data.get('ad')
+
+    db.session.add(favourite)
+    db.session.commit()
+
+    return jsonify(status='success', message="Added To Favourite")
+
+
+@bp.route("/check_favourite", methods=['POST'])
+def check_favourite():
+    data = request.get_json()
+
+    if not data:
+        return jsonify(status="failed", message="Data required!")
+
+    if not data.get('client') or not data.get('ad'):
+        return jsonify(status="failed", message="client and ad required!")
+
+    favourite = Favourite.query.filter_by(client_id=data['client'], ad_id=data['ad'])
+    if favourite:
+        return jsonify(status='success', message="Alraedy Favourite", favourite=True)
+    return jsonify(status='success', message="Not Favourite", favourite=False)
+
+
+@bp.route("/client_favourite/<client>")
+def client_favourite(client):
+    client = Client.query.get(client)
+    if not client:
+        return jsonify(status="failed", message="Client not found")
+
+    page = request.args.get("page", 1, type=int)
+    per_page = request.args.get("per_page", 0, type=int)
+    per_page = per_page if per_page != 0 else current_app.config['POSTS_PER_PAGE']
+    favourites = Favourite.query.filter_by(client_id=client.id).order_by(
+        Favourite.created.desc()
+    ).paginate(page, per_page, False)
+    has_next = favourites.has_next
+    total = favourites.total
+    favourites = favourites.items
+
+    favourites = FavouriteSchema(many=True).dump(favourites)
+
+    return jsonify(status="success", message="Favourites Found", favourites=favourites, has_next=has_next, total=total)
+
+
+@bp.route("/service_favourite/<ad>")
+def service_favourite(ad):
+    ad = Ad.query.get(ad)
+    if not ad:
+        return jsonify(status="failed", message="Ad not found")
+
+    page = request.args.get("page", 1, type=int)
+    per_page = request.args.get("per_page", 0, type=int)
+    per_page = per_page if per_page != 0 else current_app.config['POSTS_PER_PAGE']
+    favourites = Favourite.query.filter_by(ad_id=ad.id).order_by(
+        Favourite.created.desc()
+    ).paginate(page, per_page, False)
+    has_next = favourites.has_next
+    total = favourites.total
+    favourites = favourites.items
+
+    favourites = FavouriteSchema(many=True).dump(favourites)
+
+    return jsonify(
+        status="success",
+        message="Favourites Found",
+        favourites=favourites,
+        has_next=has_next,
+        total=total
+    )
+
+
+@bp.route("/question", methods=["POST"])
+def ask_question():
+    data = request.get_json()
+    if not data:
+        return jsonify(status="failed", message="No data sent!")
+
+    ad = Ad.query.get(data.get('ad'))
+    if not ad:
+        return jsonify(status="failed", message="Ad not found!")
+
+    client = Client.query.get(data.get('client'))
+    if not client:
+        return jsonify(status="failed", message="Client not found!")
+
+    if client.id == ad.client_id:
+        return jsonify(status="failed", message="Can not ask question on your on Ad")
+
+    if not data.get('question'):
+        return jsonify(status="failed", message="Question required!")
+
+    question = Question()
+    question.client_id = client.id
+    question.ad_id = ad.id
+    question.question = data['question']
+
+    db.session.add(question)
+    db.session.commit()
+
+    return jsonify(status="success", message="Question successfully asked")
+
+
+@bp.route("/question", methods=['PUT'])
+def answer_question():
+    data = request.get_json()
+    if not data:
+        return jsonify(status="failed", message="No data sent!")
+
+    if not data.get('answer'):
+        return jsonify(status="failed", message="Answer not added")
+
+    question = Question.query.get(data.get('id'))
+    if not question:
+        return jsonify(status="failed", message="Question not found")
+
+    ad = Ad.query.get(question.ad_id)
+    if not ad:
+        return jsonify(status="failed", message="Ad not found!")
+
+    client = Client.query.get(data.get('client'))
+    if not client:
+        return jsonify(status="failed", message="Client not found!")
+
+    if client.id != ad.client_id:
+        return jsonify(status="failed", message="Ad does not belong to client")
+
+    question.answer = data.get('answer')
+
+    return jsonify(status="success", message="Question answered")
+
+
+@bp.route("/client_question/<client>")
+def client_question(client):
+    client = Client.query.get(client)
+    if not client:
+        return jsonify(status="failed", message="Client not found")
+
+    page = request.args.get("page", 1, type=int)
+    per_page = request.args.get("per_page", 0, type=int)
+    per_page = per_page if per_page != 0 else current_app.config['POSTS_PER_PAGE']
+    questions = Question.query.filter_by(client_id=client.id).order_by(
+        Question.created.desc()
+    ).paginate(page, per_page, False)
+    has_next = questions.has_next
+    total = questions.total
+    questions = questions.items
+
+    questions = QuestionSchema(many=True).dump(questions)
+
+    return jsonify(status="success", message="Questions Found", questions=questions, has_next=has_next, total=total)
+
+
+@bp.route("/service_question/<ad>")
+def service_question(ad):
+    ad = Ad.query.get(ad)
+    if not ad:
+        return jsonify(status="failed", message="Ad not found")
+
+    page = request.args.get("page", 1, type=int)
+    per_page = request.args.get("per_page", 0, type=int)
+    per_page = per_page if per_page != 0 else current_app.config['POSTS_PER_PAGE']
+    questions = Question.query.filter_by(ad_id=ad.id).order_by(
+        Question.created.desc()
+    ).paginate(page, per_page, False)
+    has_next = questions.has_next
+    total = questions.total
+    questions = questions.items
+
+    questions = QuestionSchema(many=True).dump(questions)
+
+    return jsonify(
+        status="success",
+        message="Questions Found",
+        questions=questions,
+        has_next=has_next,
+        total=total
+    )
+
+
+@bp.route("/question/<id>")
+def get_question(id):
+    question = Question.query.get(id)
+    if not question:
+        return jsonify(status="failed", message="Message not found!")
+    question = QuestionSchema().dump(question)
+    return jsonify(status="success", message="Question Found", question=question)
+
+
+@bp.route("/question")
+def get_questions():
+    page = request.args.get("page", 1, type=int)
+    per_page = request.args.get("per_page", 0, type=int)
+    per_page = per_page if per_page != 0 else current_app.config['POSTS_PER_PAGE']
+    questions = Question.query.order_by(
+        Question.created.desc()
+    ).paginate(page, per_page, False)
+    has_next = questions.has_next
+    total = questions.total
+    questions = questions.items
+
+    questions = QuestionSchema(many=True).dump(questions)
+
+    return jsonify(
+        status="success",
+        message="Questions Found",
+        questions=questions,
+        has_next=has_next,
+        total=total
+    )
